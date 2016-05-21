@@ -54,8 +54,25 @@
       <HintPath>..\packages\RabbitMQ.Client.3.5.7\lib\net40\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.0.56\lib\net40\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.56\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.4.0.56\lib\net40\ServiceStack.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.56.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.56\lib\net40\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="synapse\componentbase\EndpointBase.cs" />
+    <Compile Include="synapse\dataobjects\BeanRegistry.cs" />
     <Compile Include="synapse\dataobjects\Exchange.cs" />
     <Compile Include="synapse\dataobjects\Message.cs" />
     <Compile Include="synapse\dataobjects\MessageExchangeOption.cs" />
@@ -81,6 +100,7 @@
     <Compile Include="synapse\integrationpattern\process\RouteStep.cs" />
     <Compile Include="synapse\integrationpattern\process\UriDescriptor.cs" />
     <Compile Include="synapse\integrationpattern\process\UriExchange.cs" />
+    <Compile Include="synapse\resolver\SimpleExpression.cs" />
     <Compile Include="synapse\util\Constant.cs" />
     <Compile Include="synapse\util\SynspseException.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
@@ -91,14 +111,19 @@
     <Folder Include="pathway\" />
     <Folder Include="secure\" />
     <Folder Include="synapse\component\amq\" />
+    <Folder Include="synapse\component\base\" />
+    <Folder Include="synapse\component\couchdb\" />
     <Folder Include="synapse\component\csv\" />
     <Folder Include="synapse\component\direct\" />
     <Folder Include="synapse\component\file\" />
     <Folder Include="synapse\component\httpclient\" />
     <Folder Include="synapse\component\jwt\" />
+    <Folder Include="synapse\component\logstash\" />
     <Folder Include="synapse\component\mongodb\" />
+    <Folder Include="synapse\component\mysql\" />
     <Folder Include="synapse\component\otp\" />
     <Folder Include="synapse\component\rabbitmq\" />
+    <Folder Include="synapse\component\redis\" />
     <Folder Include="synapse\component\sftp\" />
     <Folder Include="synapse\component\smtp\" />
     <Folder Include="synapse\component\socket\" />
@@ -106,7 +131,6 @@
     <Folder Include="synapse\component\xmltojson\" />
     <Folder Include="synapse\language\" />
     <Folder Include="synapse\management\" />
-    <Folder Include="synapse\resolver\" />
     <Folder Include="synapse\strategy\" />
     <Folder Include="synapse\tag\" />
     <Folder Include="synapse\trace\" />

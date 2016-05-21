@@ -21,7 +21,7 @@ namespace nerve.core.synapse.initializer
             /// <param name="route"></param>
             /// <param name="autoTrigger"></param>
             /// <param name="packageDescriptor"></param>
-            public void DigestRouteInformation(XElement route, bool autoTrigger = false, PackageDescriptor packageDescriptor = null)
+            public static void DigestRouteInformation(XElement route, bool autoTrigger = false, PackageDescriptor packageDescriptor = null)
             {
                 if (route == null)
                     throw new SynspseException("[ErrorReadingRouteXml] - route information not valid");

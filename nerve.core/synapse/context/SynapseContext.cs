@@ -5,6 +5,7 @@ namespace nerve.core.synapse.context
 {
     public class SynapseContext
     {
+        public static BeanRegistry Registry = new BeanRegistry();
         public static readonly ConcurrentDictionary<string, Route> RouteCollection = new ConcurrentDictionary<string, Route>();
 
         public static void SetRoute(Route routeObj)

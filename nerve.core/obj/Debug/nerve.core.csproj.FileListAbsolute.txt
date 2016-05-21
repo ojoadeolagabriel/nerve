@@ -18,3 +18,10 @@ c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\De
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\log4net.xml
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\log4stash.pdb
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\RabbitMQ.Client.xml
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Common.dll
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Interfaces.dll
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Redis.dll
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Text.dll
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Common.xml
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Redis.xml
+c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Text.xml
