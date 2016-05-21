@@ -30,6 +30,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Apache.NMS, Version=1.7.1.3894, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.NMS.1.7.1\lib\net40\Apache.NMS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Apache.NMS.ActiveMQ, Version=1.7.1.3924, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.NMS.ActiveMQ.1.7.1\lib\net40\Apache.NMS.ActiveMQ.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JWT, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4stash, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4stash.1.1.1\lib\net40\log4stash.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.5.7.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.3.5.7\lib\net40\RabbitMQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -37,6 +61,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinSCPnet, Version=1.2.10.6257, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.7.7\lib\WinSCPnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -46,6 +74,12 @@
     <Compile Include="synapse\dataobjects\PackageDescriptor.cs" />
     <Compile Include="synapse\dataobjects\PackageInfo.cs" />
     <Compile Include="synapse\dataobjects\Route.cs" />
+    <Compile Include="synapse\integrationpattern\process\EndpointBuilder.cs" />
+    <Compile Include="synapse\integrationpattern\process\ProcessorBase.cs" />
+    <Compile Include="synapse\integrationpattern\process\RouteStep.cs" />
+    <Compile Include="synapse\integrationpattern\process\UriDescriptor.cs" />
+    <Compile Include="synapse\integrationpattern\process\UriExchange.cs" />
+    <Compile Include="synapse\util\NerveConstant.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,13 +102,21 @@
     <Folder Include="synapse\component\xmltojson\" />
     <Folder Include="synapse\context\" />
     <Folder Include="synapse\initializer\" />
-    <Folder Include="synapse\integrationpattern\" />
     <Folder Include="synapse\language\" />
     <Folder Include="synapse\management\" />
     <Folder Include="synapse\resolver\" />
     <Folder Include="synapse\strategy\" />
     <Folder Include="synapse\tag\" />
-    <Folder Include="synapse\util\" />
+    <Folder Include="synapse\trace\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
