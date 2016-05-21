@@ -8,6 +8,20 @@ namespace nerve.core.util.reader
 {
     public class XmlDataUtil
     {
+        public static T Attribute<T>(XElement element, string attribute, T defaultValue = default (T))
+        {
+            try
+            {
+                var result = element.Attribute(attribute).Value;
+                return (T)Convert.ChangeType(result, typeof (T));
+            }
+            catch
+            {
+                
+            }
+            return defaultValue;
+        }
+
         public static T GetValue<T>(XElement element, string tag, T defaultValue = default (T), string parentTag = null)
         {
             try
