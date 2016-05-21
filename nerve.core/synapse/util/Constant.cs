@@ -5,7 +5,7 @@ using System.Text;
 
 namespace nerve.core.synapse.util
 {
-    public class NerveConstant
+    public class Constant
     {
 
     }

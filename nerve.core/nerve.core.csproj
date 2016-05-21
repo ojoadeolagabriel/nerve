@@ -79,7 +79,7 @@
     <Compile Include="synapse\integrationpattern\process\RouteStep.cs" />
     <Compile Include="synapse\integrationpattern\process\UriDescriptor.cs" />
     <Compile Include="synapse\integrationpattern\process\UriExchange.cs" />
-    <Compile Include="synapse\util\NerveConstant.cs" />
+    <Compile Include="synapse\util\Constant.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,3 @@
-c:\users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.csprojResolveAssemblyReference.cache
 c:\users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.exe
 c:\users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.pdb
 c:\users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.exe

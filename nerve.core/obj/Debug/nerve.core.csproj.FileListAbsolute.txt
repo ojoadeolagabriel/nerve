@@ -1,6 +1,5 @@
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\nerve.core.dll
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\nerve.core.pdb
-c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.csprojResolveAssemblyReference.cache
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.dll
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.pdb
 c:\Users\adeolaojo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\WinSCP.exe
