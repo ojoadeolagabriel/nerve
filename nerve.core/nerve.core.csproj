@@ -74,12 +74,15 @@
     <Compile Include="synapse\dataobjects\PackageDescriptor.cs" />
     <Compile Include="synapse\dataobjects\PackageInfo.cs" />
     <Compile Include="synapse\dataobjects\Route.cs" />
+    <Compile Include="synapse\context\SynapseContext.cs" />
+    <Compile Include="synapse\initializer\SynapseContextInitializer.cs" />
     <Compile Include="synapse\integrationpattern\process\EndpointBuilder.cs" />
     <Compile Include="synapse\integrationpattern\process\ProcessorBase.cs" />
     <Compile Include="synapse\integrationpattern\process\RouteStep.cs" />
     <Compile Include="synapse\integrationpattern\process\UriDescriptor.cs" />
     <Compile Include="synapse\integrationpattern\process\UriExchange.cs" />
     <Compile Include="synapse\util\Constant.cs" />
+    <Compile Include="synapse\util\SynspseException.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,11 +100,10 @@
     <Folder Include="synapse\component\otp\" />
     <Folder Include="synapse\component\rabbitmq\" />
     <Folder Include="synapse\component\sftp\" />
+    <Folder Include="synapse\component\smtp\" />
     <Folder Include="synapse\component\socket\" />
     <Folder Include="synapse\component\timer\" />
     <Folder Include="synapse\component\xmltojson\" />
-    <Folder Include="synapse\context\" />
-    <Folder Include="synapse\initializer\" />
     <Folder Include="synapse\language\" />
     <Folder Include="synapse\management\" />
     <Folder Include="synapse\resolver\" />

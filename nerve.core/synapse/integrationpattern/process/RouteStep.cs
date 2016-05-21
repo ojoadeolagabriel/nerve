@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
+using nerve.core.synapse.dataobjects;
 
 namespace nerve.core.synapse.integrationpattern.process
 {
-    class RouteStep
+    public class RouteStep
     {
+        public RouteStep(XElement xmlStep, Route routeObj)
+        {
+            
+        }
+
+        public RouteStep NextRouteStep { get; set; }
     }
 }
