@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8014979-878B-45D0-9BFA-8FF4CE369054}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nerve.core</RootNamespace>
+    <AssemblyName>nerve.core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="synapse\dataobjects\Exchange.cs" />
+    <Compile Include="synapse\dataobjects\Message.cs" />
+    <Compile Include="synapse\dataobjects\MessageExchangeOption.cs" />
+    <Compile Include="synapse\dataobjects\PackageDescriptor.cs" />
+    <Compile Include="synapse\dataobjects\PackageInfo.cs" />
+    <Compile Include="synapse\dataobjects\Route.cs" />
+    <Compile Include="util\reader\XmlDataUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="libutil\" />
+    <Folder Include="pathway\" />
+    <Folder Include="secure\" />
+    <Folder Include="synapse\component\amq\" />
+    <Folder Include="synapse\component\csv\" />
+    <Folder Include="synapse\component\direct\" />
+    <Folder Include="synapse\component\file\" />
+    <Folder Include="synapse\component\httpclient\" />
+    <Folder Include="synapse\component\jwt\" />
+    <Folder Include="synapse\component\mongodb\" />
+    <Folder Include="synapse\component\otp\" />
+    <Folder Include="synapse\component\rabbitmq\" />
+    <Folder Include="synapse\component\sftp\" />
+    <Folder Include="synapse\component\socket\" />
+    <Folder Include="synapse\component\timer\" />
+    <Folder Include="synapse\component\xmltojson\" />
+    <Folder Include="synapse\context\" />
+    <Folder Include="synapse\initializer\" />
+    <Folder Include="synapse\integrationpattern\" />
+    <Folder Include="synapse\language\" />
+    <Folder Include="synapse\management\" />
+    <Folder Include="synapse\resolver\" />
+    <Folder Include="synapse\strategy\" />
+    <Folder Include="synapse\tag\" />
+    <Folder Include="synapse\util\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
