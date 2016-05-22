@@ -18,7 +18,7 @@ namespace nerve.core.synapse.integrationpattern.process
                 uri = SimpleExpression.ResolveSpecifiedUriPart(uri, exchange);
 
             if (string.IsNullOrEmpty(uri))
-                throw new SynspseException("uri data error: cannot be empty");
+                throw new SynapseException("uri data error: cannot be empty");
 
             var mainParts = uri.Split(new[] { '?' }, 2);
 

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
 using nerve.core.synapse.context;
 using nerve.core.synapse.dataobjects;
+using nerve.core.synapse.initializer.processors;
 using nerve.core.synapse.integrationpattern.process;
 using nerve.core.synapse.util;
 using nerve.core.util.reader;
@@ -13,51 +17,107 @@ namespace nerve.core.synapse.initializer
 {
     public class SynapseContextInitializer
     {
-        public class RouteStepProcessor
+        public static string GetBundleResourceTextFile(string bundleDllPath)
         {
-            /// <summary>
-            /// Digest Route Information
-            /// </summary>
-            /// <param name="route"></param>
-            /// <param name="autoTrigger"></param>
-            /// <param name="packageDescriptor"></param>
-            public static void DigestRouteInformation(XElement route, bool autoTrigger = false, PackageDescriptor packageDescriptor = null)
+            var assemblyName = Path.GetFileNameWithoutExtension(bundleDllPath);
+            var routePath = string.Format("{0}.property.route.route.xml", assemblyName);
+
+            Console.Write("Bundle: [{0}]", assemblyName);
+
+            string result;
+
+            var assembly = Assembly.LoadFile(bundleDllPath);
+            using (var stream = assembly.GetManifestResourceStream(routePath))
             {
-                if (route == null)
-                    throw new SynspseException("[ErrorReadingRouteXml] - route information not valid");
-
-                try
+                if (stream == null)
+                    return null;
+                using (var sr = new StreamReader(stream))
                 {
-                    var description = XmlDataUtil.Attribute<string>(route, "description");
-                    var routeObj = new Route { Description = description, PackageDescriptor = packageDescriptor };
-                    RouteStep nextRouteStepProcessorToLink = null;
+                    result = sr.ReadToEnd();
+                }
+            }
+            return result;
+        }
 
-                    //read all steps in route
-                    foreach (var xmlStep in route.Elements())
+        /// <summary>
+        /// GetDescriptorResourceTextFile
+        /// </summary>
+        /// <param name="bundleDllPath"></param>
+        /// <returns></returns>
+        public static PackageDescriptor LoadPackageDescriptorFromDll(string bundleDllPath)
+        {
+            try
+            {
+                var assemblyName = Path.GetFileNameWithoutExtension(bundleDllPath);
+                var routePath = string.Format("{0}.property.descriptor.xml", assemblyName);
+
+                var assembly = Assembly.LoadFile(bundleDllPath);
+                using (var stream = assembly.GetManifestResourceStream(routePath))
+                {
+                    if (stream == null)
+                        return null;
+
+                    using (var sr = new StreamReader(stream))
                     {
-                        if (routeObj.CurrentRouteStep == null)
-                        {
-                            routeObj.CurrentRouteStep = new RouteStep(xmlStep, routeObj);
-                            nextRouteStepProcessorToLink = routeObj.CurrentRouteStep;
-                        }
-                        else
-                        {
-                            var nextStep = new RouteStep(xmlStep, routeObj);
-                            if (nextRouteStepProcessorToLink == null)
-                                continue;
-
-                            nextRouteStepProcessorToLink.NextRouteStep = nextStep;
-                            nextRouteStepProcessorToLink = nextRouteStepProcessorToLink.NextRouteStep;
-                        }
+                        var data = sr.ReadToEnd();
+                        var obj = new PackageDescriptor(data);
+                        Console.WriteLine(" version: [{0}], friendly-name: [{1}]", obj.ModelVersion, obj.Name);
+                        return obj;
                     }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new SynapseException(string.Format("[LoadPackageDescriptorFromDll_Error] - {0}", bundleDllPath), exception);
+            }
+        }
 
-                    //add route for execution
-                    SynapseContext.SetRoute(routeObj);
-                }
-                catch (Exception exception)
+        /// <summary>
+        /// Initialize Route File.
+        /// </summary>
+        /// <param name="fileInformation"></param>
+        /// <param name="isPackage"></param>
+        public static void Initialize(string fileInformation, bool isPackage = true)
+        {
+            try
+            {
+                //check if file exists
+                if (!File.Exists(fileInformation))
+                    throw new SynapseException(string.Format("[RouteFileNotFound_Error] - '{0}'", fileInformation));
+
+                XElement routeConfigFile;
+                PackageDescriptor packageDescriptor = null;
+
+                //read fileInformation
+                if (isPackage)
                 {
-                    var msg = exception.Message;
+                    //as package
+                    var routeXml = GetBundleResourceTextFile(fileInformation);
+                    packageDescriptor = LoadPackageDescriptorFromDll(fileInformation);
+                    routeConfigFile = XElement.Parse(routeXml);
+
+                    Console.WriteLine(Environment.NewLine + "({1}) === [ {0} ] ===========================================" + Environment.NewLine, Path.GetFileName(fileInformation), DateTime.Now.ToString(CultureInfo.InvariantCulture));
+                    Console.WriteLine(routeXml.ToString(CultureInfo.InvariantCulture));
                 }
+                else
+                {
+                    //as raw file data
+                    try
+                    {
+                        routeConfigFile = XElement.Parse(fileInformation);
+                    }
+                    catch (Exception exception)
+                    {
+                        throw new SynapseException(string.Format("[RouteFileParsingError] - '{0}'", fileInformation), exception);
+                    }
+                }
+
+                new BeanStepProcessor(routeConfigFile).Run();
+                new RouteStepProcessor(routeConfigFile, packageDescriptor: packageDescriptor).LoadAllSteps();
+            }
+            catch (Exception exception)
+            {
+                throw new SynapseException(string.Format("[RouteDataError_Unknown] - '{0}'", fileInformation), exception);
             }
         }
     }

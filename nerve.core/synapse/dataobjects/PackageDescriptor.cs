@@ -19,6 +19,7 @@ namespace nerve.core.synapse.dataobjects
         public PackageDescriptor(string descriptorXmlInfo)
         {
             var xmlData = XElement.Parse(descriptorXmlInfo);
+
             Name = XmlDataUtil.GetValue<string>(xmlData, "name");
             ModelVersion = XmlDataUtil.GetValue<string>(xmlData, "version");
             Author = XmlDataUtil.GetValue(xmlData, "author", "default.author");

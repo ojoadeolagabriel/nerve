@@ -5,14 +5,14 @@ using System.Text;
 
 namespace nerve.core.synapse.util
 {
-    public class SynspseException : Exception
+    public class SynapseException : Exception
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public SynspseException(string message = "", Exception exception = null) :
+        public SynapseException(string message = "", Exception exception = null) :
             base(message, exception)
         {
 

@@ -15,7 +15,7 @@ namespace nerve.core.synapse.dataobjects
 
         public Guid ExchangeId;
         public Guid ParentExchangeId;
-        public ConcurrentStack<SynspseException> Exception = new ConcurrentStack<SynspseException>();
+        public ConcurrentStack<SynapseException> Exception = new ConcurrentStack<SynapseException>();
         public ConcurrentStack<Object> AlternativeMessage = new ConcurrentStack<Object>();
         public ConcurrentDictionary<string, string> PropertyCollection { get; set; }
         public Message InMessage = new Message();
