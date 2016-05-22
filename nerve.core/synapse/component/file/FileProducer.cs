@@ -43,7 +43,7 @@ namespace nerve.core.synapse.component.file
                 }
 
                 //get details.
-                var filePath = exchange.InMessage.GetHeader<string>("filePath");
+                var filePath = exchange.InMessage.GetHeader<string>("filePath") ?? endPointDescriptor.ComponentPath;
                 var fileExtension = endPointDescriptor.GetUriProperty<string>("fileExtension");
 
                 //change_file_path
