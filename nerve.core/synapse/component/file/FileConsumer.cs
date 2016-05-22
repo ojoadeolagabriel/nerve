@@ -29,43 +29,40 @@ namespace nerve.core.synapse.component.file
 
         private void PollHandler()
         {
-            var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 50);
-
-            if (initialDelay > 100)
-                Thread.Sleep(initialDelay);
+            var deleteOnRead = _fileProcessor.UriInformation.GetUriProperty("deleteOnRead", false);
+            var searchPattern = _fileProcessor.UriInformation.GetUriProperty("searchPattern", "txt");
 
             //loop.
             while (true)
             {
-
                 if (!CanRun(_fileProcessor.Route.PackageDescriptor.PackageStatus))
                     continue;
+
                 try
                 {
                     var exchange = new Exchange(_fileProcessor.Route);
-                    var fileData = "";
                     var fileFolderPath = _fileProcessor.UriInformation.ComponentPath;
 
                     if (Directory.Exists(fileFolderPath))
                     {
-                        var fileInfo = Directory.GetFiles(fileFolderPath).FirstOrDefault();
-                        if (fileInfo != null)
+                        var firstFile = new DirectoryInfo(fileFolderPath).GetFiles().FirstOrDefault(name=> Path.GetExtension(name.FullName) == searchPattern);
+
+                        if (firstFile != null)
                         {
-                            fileFolderPath = fileInfo;
                             exchange.InMessage.SetHeader("filePath", fileFolderPath);
-                            fileData = File.ReadAllText(fileInfo);
+                            fileFolderPath = firstFile.FullName;
+                            var fileData = File.ReadAllText(fileFolderPath);
+
+                            if (deleteOnRead)
+                                File.Delete(fileFolderPath);
+
+                            ProcessResponse(fileData, exchange, fileFolderPath);
                         }
                         else
                         {
                             Thread.Sleep(1000);
                         }
                     }
-                    else if (File.Exists(fileFolderPath))
-                    {
-                        fileData = File.ReadAllText(fileFolderPath);
-                    }
-
-                    ProcessResponse(fileData, exchange, fileFolderPath);
                 }
                 catch (Exception exception)
                 {

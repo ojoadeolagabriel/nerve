@@ -15,6 +15,27 @@ namespace nerve.core.synapse.integrationpattern.process
 {
     public class RouteStep
     {
+        private readonly string _componentPathInfo = null;
+
+        public string ComponentPathInfo
+        {
+            get
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(_componentPathInfo) && _currentStepXml.Name == TagConstant.FromTag)
+                    {
+                        var uri = UriDescriptor.Parse(_currentStepXml.Attribute(TagConstant.Uri).Value);
+                        return uri.ComponentPath;
+                    }
+                    return _componentPathInfo;
+                }
+                catch (Exception ex)
+                {
+                    return "";
+                }
+            }
+        }
         public RouteStep(XElement currentStepXml, Route routeObj)
         {
             _currentStepXml = currentStepXml;

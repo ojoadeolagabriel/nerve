@@ -94,6 +94,10 @@
     <Compile Include="synapse\componentbase\ProducerBase.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="synapse\component\direct\DirectConsumer.cs" />
+    <Compile Include="synapse\component\direct\DirectEndpoint.cs" />
+    <Compile Include="synapse\component\direct\DirectProcessor.cs" />
+    <Compile Include="synapse\component\direct\DirectProducer.cs" />
     <Compile Include="synapse\component\file\FileConsumer.cs" />
     <Compile Include="synapse\component\file\FileEndpoint.cs" />
     <Compile Include="synapse\component\file\FileProcessor.cs" />
@@ -149,7 +153,6 @@
     <Folder Include="synapse\component\amq\" />
     <Folder Include="synapse\component\couchdb\" />
     <Folder Include="synapse\component\csv\" />
-    <Folder Include="synapse\component\direct\" />
     <Folder Include="synapse\component\httpclient\" />
     <Folder Include="synapse\component\jwt\" />
     <Folder Include="synapse\component\logstash\" />

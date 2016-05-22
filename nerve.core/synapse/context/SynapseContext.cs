@@ -17,6 +17,21 @@ namespace nerve.core.synapse.context
         public static readonly ConcurrentDictionary<string, Route> RouteCollection = new ConcurrentDictionary<string, Route>();
         public static readonly ConcurrentDictionary<string, EndpointBase> EnPointCollection = new ConcurrentDictionary<string, EndpointBase>();
 
+        public static Route GetRouteBy(string direct)
+        {
+            var data = RouteCollection.FirstOrDefault(c =>
+            {
+                try
+                {
+                    return c.Value.CurrentRouteStep.ComponentPathInfo == direct;
+                }
+                catch (System.Exception)
+                {
+                    return false;
+                }
+            });
+            return data.Value;
+        }
         /// <summary>
         /// Register new route
         /// </summary>

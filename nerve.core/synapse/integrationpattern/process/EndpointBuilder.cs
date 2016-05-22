@@ -107,7 +107,7 @@ namespace nerve.core.synapse.integrationpattern.process
                 EndpointBase endPoint;
                 if (SynapseContext.EnPointCollection.TryGetValue(leafDescriptor.FullUri, out endPoint))
                 {
-
+                    
                 }
                 else
                 {
