@@ -2,7 +2,9 @@ C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\n
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.exe
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.pdb
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.core.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\RabbitMQ.Client.dll
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.core.pdb
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\RabbitMQ.Client.xml
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.csprojResolveAssemblyReference.cache
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.exe
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.pdb

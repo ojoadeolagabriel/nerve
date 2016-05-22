@@ -91,11 +91,17 @@
     <Compile Include="synapse\componentbase\EndpointBase.cs" />
     <Compile Include="synapse\componentbase\impl\PollingConsumer.cs" />
     <Compile Include="synapse\componentbase\ProcessorBase.cs" />
-    <Compile Include="synapse\componentbase\ProducerBase.cs" />
+    <Compile Include="synapse\componentbase\ProducerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="synapse\component\file\FileConsumer.cs" />
     <Compile Include="synapse\component\file\FileEndpoint.cs" />
     <Compile Include="synapse\component\file\FileProcessor.cs" />
     <Compile Include="synapse\component\file\FileProducer.cs" />
+    <Compile Include="synapse\component\rabbitmq\RabbitMqEndpoint.cs" />
+    <Compile Include="synapse\component\rabbitmq\RabbitMqConsumer.cs" />
+    <Compile Include="synapse\component\rabbitmq\RabbitMqProcessor.cs" />
+    <Compile Include="synapse\component\rabbitmq\RabbitMqProducer.cs" />
     <Compile Include="synapse\dataobjects\BeanRegistry.cs" />
     <Compile Include="synapse\dataobjects\Exchange.cs" />
     <Compile Include="synapse\dataobjects\Message.cs" />
@@ -150,7 +156,6 @@
     <Folder Include="synapse\component\mongodb\" />
     <Folder Include="synapse\component\mysql\" />
     <Folder Include="synapse\component\otp\" />
-    <Folder Include="synapse\component\rabbitmq\" />
     <Folder Include="synapse\component\redis\" />
     <Folder Include="synapse\component\sftp\" />
     <Folder Include="synapse\component\smtp\" />

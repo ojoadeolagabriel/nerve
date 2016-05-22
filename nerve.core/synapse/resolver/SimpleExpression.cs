@@ -24,19 +24,28 @@ namespace nerve.core.synapse.resolver
 
                 var lhsResult = ResolveSpecifiedUriPart(lhs, exchange);
                 var rhsResult = ResolveSpecifiedUriPart(rhs, exchange);
+                var result = false;
 
                 switch (operatorType)
                 {
                     case "=":
-                        return lhsResult == rhsResult;
+                        result = lhsResult == rhsResult;
+                        break;
                     case "!=":
-                        return lhsResult != rhsResult;
+                        result = lhsResult != rhsResult;
+                        break;
                     case "<=":
-                        return lhsResult != rhsResult;
+                        result = lhsResult != rhsResult;
+                        break;
                     case ">=":
-                        return lhsResult != rhsResult;
-
+                        result = lhsResult != rhsResult;
+                        break;
                 }
+
+                if (SynapseContext.LogDebugInformation)
+                    Console.WriteLine("Checking: {0} {1} {2}, result => {3}", lhs, operatorType, rhs, result);
+
+                return result;
             }
             catch (Exception exception)
             {
