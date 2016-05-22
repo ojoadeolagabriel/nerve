@@ -28,7 +28,7 @@ namespace nerve.core.synapse.component.file
 
         private void PollHandler()
         {
-            var pollInterval = _fileProcessor.UriInformation.GetUriProperty("poll", 1000);
+            var pollInterval = _fileProcessor.UriInformation.GetUriProperty("poll", 100);
             var maxThreadCount = _fileProcessor.UriInformation.GetUriProperty("threadCount", 3);
             var createIfDirNotFound = _fileProcessor.UriInformation.GetUriProperty("create", true);
             var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 1000);

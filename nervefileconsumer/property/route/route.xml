@@ -1,10 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <container xmlns:n="http://com.nerveinteract.camel/context">
 
+  <bean id="sysConfig" class="nerve.core.service.sysconfig.SystemConfiguration"/>
+
   <nervecontext>
     <route description="test_file_consumer_route">
-      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true"/>
-      <to uri="file:C:\Users\AdeolaOjo\Downloads\TestData\Backup?suffixTimeStamp=true;fileExtension=csv;create=true"/>
+
+      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true;poll=200"/>
+      <setHeader name="recordPerPull" value="${sysConfig.RabbitMqPort}"/>
+
+      <choice>
+        <when>
+          <simple>${sysConfig.RabbitMqPort} = 18991</simple>
+          <setHeader name="headerPortMathces" value="true"/>
+        </when>
+        <otherwise>
+          <setHeader name="headerPortMathces" value="false"/>
+        </otherwise>
+      </choice>
+
+      <to uri="file:${sysConfig.FileDataDumpPath}\Backup?suffixTimeStamp=true;fileExtension=csv;create=true"/>
     </route>
   </nervecontext>
 

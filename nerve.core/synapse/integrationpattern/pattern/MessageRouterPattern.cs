@@ -22,10 +22,11 @@ namespace nerve.core.synapse.integrationpattern.pattern
         public static void DoWhen(XElement choicElement, Exchange exchange)
         {
             var whenElements = choicElement.Elements("when");
+            var passed = false;
 
             foreach (var whenElement in whenElements)
             {
-                var passed = CheckRequiremnt(whenElement, exchange);
+                passed = CheckRequiremnt(whenElement, exchange);
                 if (!passed) continue;
 
                 var functions = whenElement.Elements().Skip(1);
@@ -36,15 +37,18 @@ namespace nerve.core.synapse.integrationpattern.pattern
                 break;
             }
 
-            //handle otherwise
-            var otherwiseXml = choicElement.Element("otherwise");
-            if (otherwiseXml == null) return;
-
-            var otherwiseFunctions = otherwiseXml.Elements();
-
-            foreach (var xmlStep in otherwiseFunctions)
+            if (!passed)
             {
-                RouteStep.ExecuteRouteStep(xmlStep, exchange.Route, exchange);
+                //handle otherwise
+                var otherwiseXml = choicElement.Element("otherwise");
+                if (otherwiseXml == null) return;
+
+                var otherwiseFunctions = otherwiseXml.Elements();
+
+                foreach (var xmlStep in otherwiseFunctions)
+                {
+                    RouteStep.ExecuteRouteStep(xmlStep, exchange.Route, exchange);
+                }
             }
         }
 

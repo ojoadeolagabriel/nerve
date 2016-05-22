@@ -1,3 +1,4 @@
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.exe.config
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.exe
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.pdb
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\nerve.core.dll

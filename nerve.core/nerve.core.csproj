@@ -71,6 +71,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
@@ -85,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\sysconfig\SystemConfiguration.cs" />
     <Compile Include="synapse\componentbase\ConsumerBase.cs" />
     <Compile Include="synapse\componentbase\EndpointBase.cs" />
     <Compile Include="synapse\componentbase\impl\PollingConsumer.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="synapse\util\synapseconstant\ComponentConstant.cs" />
     <Compile Include="synapse\util\synapseconstant\TagConstant.cs" />
     <Compile Include="synapse\util\SynapseException.cs" />
+    <Compile Include="util\config\ConfigBase.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
     <Compile Include="util\reflectivity\ReflectionHelper.cs" />
   </ItemGroup>
