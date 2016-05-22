@@ -31,7 +31,7 @@ namespace nerve.core.synapse.component.file
             var pollInterval = _fileProcessor.UriInformation.GetUriProperty("poll", 100);
             var maxThreadCount = _fileProcessor.UriInformation.GetUriProperty("threadCount", 3);
             var createIfDirNotFound = _fileProcessor.UriInformation.GetUriProperty("create", true);
-            var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 1000);
+            var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 50);
 
             if (initialDelay > 100)
                 Thread.Sleep(initialDelay);

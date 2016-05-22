@@ -24,7 +24,7 @@ namespace nerve.core.synapse.component.rabbitmq
             {
                 var hostname = endPointDescriptor.GetUriProperty("hostname", "localhost");
                 var queue = endPointDescriptor.GetUriProperty("queue", "systemQueue");
-                var port = endPointDescriptor.GetUriProperty("port", 15672);
+                var port = endPointDescriptor.GetUriProperty("port", 5672);
 
                 var factory = new ConnectionFactory() { HostName = hostname };
                 using (var connection = factory.CreateConnection())
