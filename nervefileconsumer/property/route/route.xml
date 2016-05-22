@@ -8,6 +8,8 @@
     <route description="rmq_route">
       <from uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
       <to uri="file:${sysConfig.RmqFileDataDumpPath}?suffixTimeStamp=true;fileExtension=csv;create=true"/>
+      
+      <setheader name="m" value="1"/>
     </route>
     
     <route description="test_file_consumer_route">
