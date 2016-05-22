@@ -55,6 +55,10 @@ namespace nerve.core.synapse.component.file
                             exchange.InMessage.SetHeader("filePath", fileFolderPath);
                             fileData = File.ReadAllText(fileInfo);
                         }
+                        else
+                        {
+                            Thread.Sleep(1000);
+                        }
                     }
                     else if (File.Exists(fileFolderPath))
                     {

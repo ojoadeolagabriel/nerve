@@ -28,6 +28,9 @@ namespace nerve.core.synapse.component.file
         {
             try
             {
+                if (exchange.InMessage.Body == null || exchange.InMessage.Body.ToString() == string.Empty)
+                    return exchange;
+
                 //can create dir
                 var createOnMissingDir = endPointDescriptor.GetUriProperty<bool>("create");
 
