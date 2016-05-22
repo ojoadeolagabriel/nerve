@@ -12,7 +12,7 @@
     
     <route description="test_file_consumer_route">
 
-      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true;poll=50"/>
+      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true"/>
       <setHeader name="recordPerPull" value="${sysConfig.RabbitMqPort}"/>
 
       <choice>
@@ -21,6 +21,7 @@
           <setHeader name="headerPortMathces" value="true"/>
           <to uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
         </when>
+        
         <otherwise>
           <setHeader name="headerPortMathces" value="false"/>
         </otherwise>

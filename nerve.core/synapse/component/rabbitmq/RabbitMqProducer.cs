@@ -44,9 +44,6 @@ namespace nerve.core.synapse.component.rabbitmq
                                      routingKey: queue,
                                      basicProperties: null,
                                      body: body);
-
-                        if (SynapseContext.LogDebugInformation)
-                            Console.WriteLine("[x] Sent {0}", msg);
                     }
                 }
             }
