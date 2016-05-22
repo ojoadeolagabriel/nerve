@@ -7,6 +7,7 @@
 
     <route>
       <from uri="direct:paymentNotificationProcessor"/>
+      <to uri="file:${sysConfig.RmqFileDataDumpPath}/DirectDump?suffixTimeStamp=true;fileExtension=csv;create=true"/>
     </route>
     
     <route description="rmq_route">

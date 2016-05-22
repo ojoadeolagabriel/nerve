@@ -49,7 +49,9 @@ namespace nerve.core.synapse.component.file
 
                         if (firstFile != null)
                         {
-                            exchange.InMessage.SetHeader("filePath", fileFolderPath);
+                            exchange.InMessage.SetHeader("filePath", firstFile.FullName);
+                            exchange.InMessage.SetHeader("fileName", Path.GetFileName(firstFile.FullName));
+
                             fileFolderPath = firstFile.FullName;
                             var fileData = File.ReadAllText(fileFolderPath);
 
@@ -73,9 +75,7 @@ namespace nerve.core.synapse.component.file
 
         private void ProcessResponse(string fileData, Exchange exchange, string fileFolderPath)
         {
-            exchange.InMessage.SetHeader("fileFolderPath", fileFolderPath);
             exchange.InMessage.Body = fileData;
-
             _fileProcessor.Process(exchange);
             exchange.OutMessage.Body = exchange.InMessage.Body;
         }
