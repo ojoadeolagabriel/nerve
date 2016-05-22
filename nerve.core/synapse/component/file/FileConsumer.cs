@@ -29,7 +29,6 @@ namespace nerve.core.synapse.component.file
         private void PollHandler()
         {
             var pollInterval = _fileProcessor.UriInformation.GetUriProperty("poll", 1000);
-            var fileFolderPath = _fileProcessor.UriInformation.ComponentPath;
             var maxThreadCount = _fileProcessor.UriInformation.GetUriProperty("threadCount", 3);
             var createIfDirNotFound = _fileProcessor.UriInformation.GetUriProperty("create", true);
             var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 1000);
@@ -53,6 +52,7 @@ namespace nerve.core.synapse.component.file
                 {
                     var exchange = new Exchange(_fileProcessor.Route);
                     var fileData = "";
+                    var fileFolderPath = _fileProcessor.UriInformation.ComponentPath;
 
                     if (Directory.Exists(fileFolderPath))
                     {
@@ -60,6 +60,7 @@ namespace nerve.core.synapse.component.file
                         if (fileInfo != null)
                         {
                             fileFolderPath = fileInfo;
+                            exchange.InMessage.SetHeader("filePath", fileFolderPath);
                             fileData = File.ReadAllText(fileInfo);
                         }
                     }

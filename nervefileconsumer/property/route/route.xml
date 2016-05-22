@@ -3,7 +3,8 @@
 
   <nervecontext>
     <route description="test_file_consumer_route">
-      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true"/>
+      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true"/>
+      <to uri="file:C:\Users\AdeolaOjo\Downloads\TestData\Backup?suffixTimeStamp=true;fileExtension=csv;create=true"/>
     </route>
   </nervecontext>
 
