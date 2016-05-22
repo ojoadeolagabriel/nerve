@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,21 @@ namespace nerve.core.synapse.component.rabbitmq
 {
     public class RabbitMqProducer : ProducerBase
     {
+        public static ConcurrentDictionary<string, IModel> Channel = new ConcurrentDictionary<string, IModel>();
+
+        public IModel GetChannel(string channelId, string queue, string host)
+        {
+            if (!Channel.Keys.Contains(channelId))
+            {
+                var factory = new ConnectionFactory() { HostName = host };
+                var connection = factory.CreateConnection();
+                var channel = connection.CreateModel();
+                Channel.TryAdd(channelId, channel);
+            }
+
+            return Channel[channelId];
+        }
+
         public RabbitMqProducer(UriDescriptor uriInformation, Route route)
             : base(uriInformation, route)
         {
@@ -25,27 +41,22 @@ namespace nerve.core.synapse.component.rabbitmq
                 var hostname = endPointDescriptor.GetUriProperty("hostname", "localhost");
                 var queue = endPointDescriptor.GetUriProperty("queue", "systemQueue");
                 var port = endPointDescriptor.GetUriProperty("port", 5672);
+                var channel = GetChannel(string.Format("{0}::{1}::{2}",hostname,port,queue),queue,hostname);
 
-                var factory = new ConnectionFactory() { HostName = hostname };
-                using (var connection = factory.CreateConnection())
-                {
-                    using (var channel = connection.CreateModel())
-                    {
-                        channel.QueueDeclare(queue: queue,
-                                         durable: true,
-                                         exclusive: false,
-                                         autoDelete: false,
-                                         arguments: null);
+                channel.QueueDeclare(queue: queue,
+                                 durable: true,
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
 
-                        var msg = exchange.InMessage.Body.ToString();
-                        var body = Encoding.UTF8.GetBytes(msg);
+                var msg = exchange.InMessage.Body.ToString();
+                var body = Encoding.UTF8.GetBytes(msg);
 
-                        channel.BasicPublish(exchange: "",
-                                     routingKey: queue,
-                                     basicProperties: null,
-                                     body: body);
-                    }
-                }
+                //send
+                channel.BasicPublish(exchange: "",
+                             routingKey: queue,
+                             basicProperties: null,
+                             body: body);
             }
             catch (Exception exception)
             {

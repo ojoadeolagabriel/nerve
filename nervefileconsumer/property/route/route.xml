@@ -13,6 +13,7 @@
     <route description="test_file_consumer_route">
 
       <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true;deleteOnRead=true"/>
+      <to uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
       <setHeader name="recordPerPull" value="${sysConfig.RabbitMqPort}"/>
 
       <choice>

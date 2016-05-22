@@ -14,6 +14,7 @@ namespace nerve.core.synapse.component.file
     {
         private readonly FileProcessor _fileProcessor;
 
+
         public FileConsumer(FileProcessor fileProcessor)
         {
             _fileProcessor = fileProcessor;
@@ -30,24 +31,17 @@ namespace nerve.core.synapse.component.file
         {
             var pollInterval = _fileProcessor.UriInformation.GetUriProperty("poll", 100);
             var maxThreadCount = _fileProcessor.UriInformation.GetUriProperty("threadCount", 3);
-            var createIfDirNotFound = _fileProcessor.UriInformation.GetUriProperty("create", true);
             var initialDelay = _fileProcessor.UriInformation.GetUriProperty("initialDelay", 50);
 
             if (initialDelay > 100)
                 Thread.Sleep(initialDelay);
 
-            var totalCount = 0;
-
             //loop.
             while (true)
             {
-                if (totalCount >= maxThreadCount)
-                    continue;
 
-                if(!CanRun(_fileProcessor.Route.PackageDescriptor.PackageStatus))
+                if (!CanRun(_fileProcessor.Route.PackageDescriptor.PackageStatus))
                     continue;
-
-                ++totalCount;
                 try
                 {
                     var exchange = new Exchange(_fileProcessor.Route);
@@ -75,9 +69,6 @@ namespace nerve.core.synapse.component.file
                 {
                     var msg = exception.Message;
                 }
-                
-                --totalCount;
-                Thread.Sleep(pollInterval);
             }
         }
 

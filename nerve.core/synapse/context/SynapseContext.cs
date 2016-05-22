@@ -11,7 +11,7 @@ namespace nerve.core.synapse.context
 {
     public class SynapseContext
     {
-        public static bool LogDebugInformation = true;
+        public static bool LogDebugInformation = false;
         public static ConcurrentQueue<string> AssemblyCollection = new ConcurrentQueue<string>();
         public static BeanRegistry Registry = new BeanRegistry();
         public static readonly ConcurrentDictionary<string, Route> RouteCollection = new ConcurrentDictionary<string, Route>();
