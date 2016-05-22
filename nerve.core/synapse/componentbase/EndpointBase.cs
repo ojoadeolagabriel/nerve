@@ -25,6 +25,15 @@ namespace nerve.core.synapse.componentbase
         }
 
         public UriDescriptor UriDescriptor { get; set; }
+
         public string Uri { get; set; }
+
+        public virtual void Send(Exchange exchange, UriDescriptor endPointDescriptor)
+        {
+        }
+
+        public virtual void StartWithExistingExchange(Exchange exchangeData)
+        {
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace nerve.core.synapse.dataobjects
 {
     public class BeanRegistry : ConcurrentDictionary<string, Object>
     {
+
     }
 }

@@ -1,0 +1,7 @@
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\bin\Debug\nervefileconsumer.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\bin\Debug\nervefileconsumer.pdb
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\bin\Debug\nerve.core.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\bin\Debug\nerve.core.pdb
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\obj\Debug\nervefileconsumer.csprojResolveAssemblyReference.cache
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\obj\Debug\nervefileconsumer.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nervefileconsumer\obj\Debug\nervefileconsumer.pdb

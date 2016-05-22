@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nerve", "nerve\nerve.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nerve.core", "nerve.core\nerve.core.csproj", "{D8014979-878B-45D0-9BFA-8FF4CE369054}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nervefileconsumer", "nervefileconsumer\nervefileconsumer.csproj", "{B30819B9-7DDB-4498-AC09-2C44ED171917}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D8014979-878B-45D0-9BFA-8FF4CE369054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8014979-878B-45D0-9BFA-8FF4CE369054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8014979-878B-45D0-9BFA-8FF4CE369054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30819B9-7DDB-4498-AC09-2C44ED171917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30819B9-7DDB-4498-AC09-2C44ED171917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30819B9-7DDB-4498-AC09-2C44ED171917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30819B9-7DDB-4498-AC09-2C44ED171917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

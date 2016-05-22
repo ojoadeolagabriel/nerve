@@ -85,7 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="synapse\componentbase\ConsumerBase.cs" />
     <Compile Include="synapse\componentbase\EndpointBase.cs" />
+    <Compile Include="synapse\componentbase\impl\PollingConsumer.cs" />
+    <Compile Include="synapse\componentbase\ProcessorBase.cs" />
+    <Compile Include="synapse\componentbase\ProducerBase.cs" />
+    <Compile Include="synapse\component\file\FileConsumer.cs" />
+    <Compile Include="synapse\component\file\FileEndpoint.cs" />
+    <Compile Include="synapse\component\file\FileProcessor.cs" />
+    <Compile Include="synapse\component\file\FileProducer.cs" />
     <Compile Include="synapse\dataobjects\BeanRegistry.cs" />
     <Compile Include="synapse\dataobjects\Exchange.cs" />
     <Compile Include="synapse\dataobjects\Message.cs" />
@@ -97,15 +105,32 @@
     <Compile Include="synapse\initializer\processors\BeanStepProcessor.cs" />
     <Compile Include="synapse\initializer\processors\RouteStepProcessor.cs" />
     <Compile Include="synapse\initializer\SynapseContextInitializer.cs" />
+    <Compile Include="synapse\integrationpattern\pattern\EnricherPattern.cs" />
+    <Compile Include="synapse\integrationpattern\pattern\MessageRouterPattern.cs" />
+    <Compile Include="synapse\integrationpattern\pattern\PublishSubscribePattern.cs" />
+    <Compile Include="synapse\integrationpattern\pattern\SplitterPattern.cs" />
+    <Compile Include="synapse\integrationpattern\pattern\WireTapPattern.cs" />
     <Compile Include="synapse\integrationpattern\process\EndpointBuilder.cs" />
     <Compile Include="synapse\integrationpattern\process\ProcessorBase.cs" />
     <Compile Include="synapse\integrationpattern\process\RouteStep.cs" />
+    <Compile Include="synapse\integrationpattern\process\SedaDriver.cs" />
     <Compile Include="synapse\integrationpattern\process\UriDescriptor.cs" />
     <Compile Include="synapse\integrationpattern\process\UriExchange.cs" />
     <Compile Include="synapse\resolver\SimpleExpression.cs" />
+    <Compile Include="synapse\strategy\AggregationStrategy.cs" />
+    <Compile Include="synapse\strategy\contracts\ISplitterStrategy.cs" />
+    <Compile Include="synapse\tag\DelayTag.cs" />
+    <Compile Include="synapse\tag\FromTag.cs" />
+    <Compile Include="synapse\tag\LoopTag.cs" />
+    <Compile Include="synapse\tag\ToTag.cs" />
+    <Compile Include="synapse\tag\TransformTag.cs" />
     <Compile Include="synapse\util\Constant.cs" />
+    <Compile Include="synapse\util\ext\KeyValuePairExtensions.cs" />
+    <Compile Include="synapse\util\synapseconstant\ComponentConstant.cs" />
+    <Compile Include="synapse\util\synapseconstant\TagConstant.cs" />
     <Compile Include="synapse\util\SynapseException.cs" />
     <Compile Include="util\reader\XmlDataUtil.cs" />
+    <Compile Include="util\reflectivity\ReflectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\lightfoot\" />
@@ -113,11 +138,9 @@
     <Folder Include="pathway\" />
     <Folder Include="secure\" />
     <Folder Include="synapse\component\amq\" />
-    <Folder Include="synapse\component\base\" />
     <Folder Include="synapse\component\couchdb\" />
     <Folder Include="synapse\component\csv\" />
     <Folder Include="synapse\component\direct\" />
-    <Folder Include="synapse\component\file\" />
     <Folder Include="synapse\component\httpclient\" />
     <Folder Include="synapse\component\jwt\" />
     <Folder Include="synapse\component\logstash\" />
@@ -133,8 +156,6 @@
     <Folder Include="synapse\component\xmltojson\" />
     <Folder Include="synapse\language\" />
     <Folder Include="synapse\management\" />
-    <Folder Include="synapse\strategy\" />
-    <Folder Include="synapse\tag\" />
     <Folder Include="synapse\trace\" />
   </ItemGroup>
   <ItemGroup>

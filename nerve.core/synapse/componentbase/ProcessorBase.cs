@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using nerve.core.synapse.dataobjects;
+using nerve.core.synapse.integrationpattern.process;
 
-namespace nerve.core.synapse.integrationpattern.process
+namespace nerve.core.synapse.componentbase
 {
+    /// <summary>
+    /// ProcessorBase Class.
+    /// </summary>
     public class ProcessorBase
     {
         public UriDescriptor UriInformation;
+
         public Route Route;
 
+        /// <summary>
+        /// Class constructor
+        /// </summary>
+        /// <param name="uriInformation"></param>
+        /// <param name="route"></param>
         protected ProcessorBase(UriDescriptor uriInformation, Route route)
         {
             UriInformation = uriInformation;
             Route = route;
-        }
-
-        public virtual void PrepareOut(Exchange exchange)
-        {
-
         }
 
         public virtual Exchange Process(Exchange exchange)

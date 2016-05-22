@@ -9,6 +9,7 @@ using nerve.core.synapse.dataobjects;
 using nerve.core.synapse.initializer.processors;
 using nerve.core.synapse.integrationpattern.process;
 using nerve.core.synapse.util;
+using nerve.core.synapse.util.synapseconstant;
 using nerve.core.util.reader;
 
 namespace nerve.core.synapse.initializer.processors
@@ -26,18 +27,18 @@ namespace nerve.core.synapse.initializer.processors
             _route = route;
         }
 
-        public void LoadAllSteps()
+        public void Run()
         {
             var leafContextXml = _route.Element(Constant.LeafContext);
 
             //get first route
             if (leafContextXml != null)
             {
-                var routeNode = leafContextXml.Elements("route");
+                var routeNode = leafContextXml.Elements(TagConstant.Route);
                 foreach (var route in routeNode)
                 {
                     var xmlRoute = route;
-                    Run(xmlRoute);
+                    Exec(xmlRoute);
                 }
             }
             else
@@ -49,13 +50,16 @@ namespace nerve.core.synapse.initializer.processors
         /// <summary>
         /// Digest Route Information
         /// </summary>
-        private void Run(XElement routeElement)
+        private void Exec(XElement routeElement)
         {
             if (routeElement == null)
-                throw new SynapseException("[ErrorReadingRouteXml] - route information not valid");
+            {
+                return;
+            }
+
             try
             {
-                var description = XmlDataUtil.Attribute<string>(routeElement, "description");
+                var description = XmlDataUtil.Attribute<string>(routeElement, TagConstant.Description);
                 var routeObj = new Route { Description = description, PackageDescriptor = _packageDescriptor };
                 RouteStep nextRouteStepProcessorToLink = null;
 

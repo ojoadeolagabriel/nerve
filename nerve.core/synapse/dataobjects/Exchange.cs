@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using nerve.core.synapse.util;
+using nerve.core.util.reflectivity;
 
 namespace nerve.core.synapse.dataobjects
 {
@@ -47,6 +48,27 @@ namespace nerve.core.synapse.dataobjects
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Clone Exchange
+        /// </summary>
+        /// <param name="inMessage"></param>
+        /// <param name="outMessage"></param>
+        /// <param name="route"></param>
+        /// <returns></returns>
+        public Exchange CloneExchange(Message inMessage = null, Message outMessage = null, Route route = null)
+        {
+            var exc = new Exchange(Route)
+            {
+                InMessage = inMessage ?? ReflectionHelper.DeepCopy(InMessage),
+                OutMessage = outMessage ?? ReflectionHelper.DeepCopy(OutMessage),
+                CreatedTimestamp = DateTime.Now,
+                ExchangeId = Guid.NewGuid(),
+                PropertyCollection = new ConcurrentDictionary<string, string>(),
+            };
+
+            return exc;
         }
 
         /// <summary>

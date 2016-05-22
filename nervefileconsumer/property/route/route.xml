@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<container xmlns:n="http://com.nerveinteract.camel/context">
+
+  <nervecontext>
+    <route description="test_file_consumer_route">
+      <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?create=true"/>
+    </route>
+  </nervecontext>
+
+</container>

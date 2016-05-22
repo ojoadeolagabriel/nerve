@@ -7,6 +7,9 @@ using nerve.core.util.reader;
 
 namespace nerve.core.synapse.dataobjects
 {
+    /// <summary>
+    /// Package Descriptor
+    /// </summary>
     public class PackageDescriptor
     {
         public string GuidData { get; set; }
@@ -16,6 +19,10 @@ namespace nerve.core.synapse.dataobjects
             Starting, Paused, Active, Installed, Stopping, System, UnInstalled
         }
 
+        /// <summary>
+        /// PackageDescriptor Constructor
+        /// </summary>
+        /// <param name="descriptorXmlInfo"></param>
         public PackageDescriptor(string descriptorXmlInfo)
         {
             var xmlData = XElement.Parse(descriptorXmlInfo);

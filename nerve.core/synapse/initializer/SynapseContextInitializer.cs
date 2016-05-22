@@ -15,28 +15,44 @@ using nerve.core.util.reader;
 
 namespace nerve.core.synapse.initializer
 {
+    /// <summary>
+    /// SynapseContextInitializer Class.
+    /// </summary>
     public class SynapseContextInitializer
     {
-        public static string GetBundleResourceTextFile(string bundleDllPath)
+        private const string DefaultResourceFilePath = "property.route.route.xml";
+
+        /// <summary>
+        /// Get Package Descriptor File
+        /// </summary>
+        /// <param name="bundleDllPath"></param>
+        /// <returns></returns>
+        public static string GetPackageDescriptorFile(string bundleDllPath)
         {
-            var assemblyName = Path.GetFileNameWithoutExtension(bundleDllPath);
-            var routePath = string.Format("{0}.property.route.route.xml", assemblyName);
-
-            Console.Write("Bundle: [{0}]", assemblyName);
-
-            string result;
-
-            var assembly = Assembly.LoadFile(bundleDllPath);
-            using (var stream = assembly.GetManifestResourceStream(routePath))
+            try
             {
-                if (stream == null)
-                    return null;
-                using (var sr = new StreamReader(stream))
+                var assemblyName = Path.GetFileNameWithoutExtension(bundleDllPath);
+                var routePath = string.Format("{0}.{1}", assemblyName, DefaultResourceFilePath);
+
+                Console.Write("[LoadingPackageResourceFile_Exec] - [{0}]", assemblyName);
+                string result;
+
+                var assembly = Assembly.LoadFile(bundleDllPath);
+                using (var stream = assembly.GetManifestResourceStream(routePath))
                 {
-                    result = sr.ReadToEnd();
+                    if (stream == null)
+                        return null;
+                    using (var sr = new StreamReader(stream))
+                    {
+                        result = sr.ReadToEnd();
+                    }
                 }
+                return result;
             }
-            return result;
+            catch (Exception exception)
+            {
+                throw new SynapseException(string.Format("[GetPackageDescriptorFile_Error] - '{0}'", exception.Message), exception);
+            }
         }
 
         /// <summary>
@@ -92,7 +108,7 @@ namespace nerve.core.synapse.initializer
                 if (isPackage)
                 {
                     //as package
-                    var routeXml = GetBundleResourceTextFile(fileInformation);
+                    var routeXml = GetPackageDescriptorFile(fileInformation);
                     packageDescriptor = LoadPackageDescriptorFromDll(fileInformation);
                     routeConfigFile = XElement.Parse(routeXml);
 
@@ -113,7 +129,7 @@ namespace nerve.core.synapse.initializer
                 }
 
                 new BeanStepProcessor(routeConfigFile).Run();
-                new RouteStepProcessor(routeConfigFile, packageDescriptor: packageDescriptor).LoadAllSteps();
+                new RouteStepProcessor(routeConfigFile, packageDescriptor: packageDescriptor).Run();
             }
             catch (Exception exception)
             {
