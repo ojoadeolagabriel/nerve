@@ -8,6 +8,7 @@ namespace nerve.core.service.sysconfig
 {
     public class SystemConfiguration : ConfigBase<SystemConfiguration>
     {
+        public int RecordsPerPullOnRmq { get; set; }
         public int RabbitMqPort { get; set; }
         public string FileDataDumpPath { get; set; }
         public string RmqFileDataDumpPath { get; set; }

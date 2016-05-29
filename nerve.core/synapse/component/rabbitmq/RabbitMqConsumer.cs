@@ -60,6 +60,11 @@ namespace nerve.core.synapse.component.rabbitmq
 
                 exchange.InMessage.SetHeader("queue", queue);
                 exchange.InMessage.Body = message;
+
+                Console.Write("Received..");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("{0}", message); 
+                Console.ForegroundColor = ConsoleColor.White;
                 ProcessResponse(exchange);
             };
 

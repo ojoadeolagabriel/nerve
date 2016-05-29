@@ -45,6 +45,7 @@ namespace nerve.core.synapse.component.file
 
                     if (Directory.Exists(fileFolderPath))
                     {
+                        
                         var firstFile = new DirectoryInfo(fileFolderPath).GetFiles().FirstOrDefault(name=> Path.GetExtension(name.FullName) == searchPattern);
 
                         if (firstFile != null)

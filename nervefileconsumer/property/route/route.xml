@@ -20,14 +20,16 @@
 
       <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?deleteOnRead=true;searchPattern=.csv"/>
       <to uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
-      <setHeader name="recordPerPull" value="${sysConfig.RabbitMqPort}"/>
+      
+      <setHeader name="recordPerPull" value="${sysConfig.RecordsPerPullOnRmq}"/>
       <wireTap uri="direct:paymentNotificationProcessor"/>
 
       <choice>
+        
         <when>
           <simple>${sysConfig.RabbitMqPort} = 5672</simple>
           <setHeader name="headerPortMathces" value="true"/>
-          <to uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
+          <to uri="rabbitmq?hostname=localhost;queue=testQueue;port=${sysConfig.RabbitMqPort}"/>
         </when>
         
         <otherwise>
