@@ -123,6 +123,7 @@
     <Compile Include="data\lightfoot\LightFootDao.cs" />
     <Compile Include="data\lightfoot\MemoryCacheHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="secure\auth\PasswordStrength.cs" />
     <Compile Include="service\sysconfig\SystemConfiguration.cs" />
     <Compile Include="synapse\componentbase\ConsumerBase.cs" />
     <Compile Include="synapse\componentbase\EndpointBase.cs" />
@@ -144,6 +145,9 @@
     <Compile Include="synapse\component\rabbitmq\RabbitMqConsumer.cs" />
     <Compile Include="synapse\component\rabbitmq\RabbitMqProcessor.cs" />
     <Compile Include="synapse\component\rabbitmq\RabbitMqProducer.cs" />
+    <Compile Include="synapse\component\redis\RedisConsumer.cs" />
+    <Compile Include="synapse\component\redis\RedisEndpoint.cs" />
+    <Compile Include="synapse\component\redis\RedisProcessor.cs" />
     <Compile Include="synapse\dataobjects\BeanRegistry.cs" />
     <Compile Include="synapse\dataobjects\Exchange.cs" />
     <Compile Include="synapse\dataobjects\Message.cs" />
@@ -186,7 +190,6 @@
   <ItemGroup>
     <Folder Include="libutil\" />
     <Folder Include="pathway\" />
-    <Folder Include="secure\" />
     <Folder Include="synapse\component\amq\" />
     <Folder Include="synapse\component\couchdb\" />
     <Folder Include="synapse\component\httpclient\" />
@@ -195,7 +198,6 @@
     <Folder Include="synapse\component\mongodb\" />
     <Folder Include="synapse\component\mysql\" />
     <Folder Include="synapse\component\otp\" />
-    <Folder Include="synapse\component\redis\" />
     <Folder Include="synapse\component\sftp\" />
     <Folder Include="synapse\component\smtp\" />
     <Folder Include="synapse\component\socket\" />

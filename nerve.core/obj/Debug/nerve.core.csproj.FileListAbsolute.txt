@@ -24,7 +24,6 @@ C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\De
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\ServiceStack.Text.xml
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.dll
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.pdb
-C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.csprojResolveAssemblyReference.cache
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\Microsoft.Threading.Tasks.dll
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
@@ -41,3 +40,4 @@ C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\De
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\System.Runtime.xml
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\bin\Debug\System.Threading.Tasks.xml
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.csproj.App.config
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve.core\obj\Debug\nerve.core.csprojResolveAssemblyReference.cache

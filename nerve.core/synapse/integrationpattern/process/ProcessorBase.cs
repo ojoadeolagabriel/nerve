@@ -17,11 +17,6 @@ namespace nerve.core.synapse.integrationpattern.process
             Route = route;
         }
 
-        public virtual void PrepareOut(Exchange exchange)
-        {
-
-        }
-
         public virtual Exchange Process(Exchange exchange)
         {
             if (Route.CurrentRouteStep.NextRouteStep != null)

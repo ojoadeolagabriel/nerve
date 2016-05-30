@@ -9,29 +9,33 @@
       <from uri="direct:paymentNotificationProcessor"/>
       <to uri="file:${sysConfig.RmqFileDataDumpPath}/DirectDump?suffixTimeStamp=true;fileExtension=csv;create=true"/>
     </route>
-    
+
     <route description="rmq_route">
       <from uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
       <to uri="file:${sysConfig.RmqFileDataDumpPath}?suffixTimeStamp=true;fileExtension=csv;create=true"/>
       <setheader name="m" value="1"/>
     </route>
-    
+
+    <route description="mm">
+      <from uri="redis?config=localhost"/>
+    </route>
+
     <route description="test_file_consumer_route">
 
       <from uri="file:C:\Users\AdeolaOjo\Downloads\TestData\?deleteOnRead=true;searchPattern=.csv"/>
       <to uri="rabbitmq?hostname=localhost;queue=messageQueue;port=${sysConfig.RabbitMqPort}"/>
-      
+
       <setHeader name="recordPerPull" value="${sysConfig.RecordsPerPullOnRmq}"/>
       <wireTap uri="direct:paymentNotificationProcessor"/>
 
       <choice>
-        
+
         <when>
           <simple>${sysConfig.RabbitMqPort} = 5672</simple>
           <setHeader name="headerPortMathces" value="true"/>
           <to uri="rabbitmq?hostname=localhost;queue=testQueue;port=${sysConfig.RabbitMqPort}"/>
         </when>
-        
+
         <otherwise>
           <setHeader name="headerPortMathces" value="false"/>
         </otherwise>

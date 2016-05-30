@@ -8,3 +8,14 @@ C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\R
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.csprojResolveAssemblyReference.cache
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.exe
 C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\obj\Debug\nerve.pdb
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\StackExchange.Redis.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\System.Runtime.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\System.Threading.Tasks.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\StackExchange.Redis.pdb
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\StackExchange.Redis.xml
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\System.Runtime.xml
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\System.Threading.Tasks.xml
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\log4net.dll
+C:\Users\AdeolaOjo\documents\visual studio 2013\Projects\nerve\nerve\bin\Debug\log4net.xml
